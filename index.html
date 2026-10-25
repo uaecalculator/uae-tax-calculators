@@ -68,7 +68,7 @@ footer{border-top:2px solid var(--line);margin-top:42px;padding-top:18px;color:v
 <div class="inner">
 <div class="brand">UAE Tax Calculators</div>
 <h1>UAE Tax Calculators: VAT, Corporate Tax, Customs and Excise Explained</h1>
-<p>How the main UAE taxes are worked out, with the current rates, thresholds and worked examples in dirhams, plus a free VAT calculator you can use on this page.</p>
+<p>How the main UAE taxes are worked out, with the current rates, thresholds and worked examples in dirhams, plus a free VAT calculator on UAE Calculators.</p>
 </div>
 </header>
 <div class="wrap">
@@ -98,25 +98,10 @@ footer{border-top:2px solid var(--line);margin-top:42px;padding-top:18px;color:v
 </ol>
 </div>
 
-<div class="calc" id="vat-calc">
-<h2>Try the VAT Calculator</h2>
-<p>Enter an amount, then choose whether to add VAT to a net price or remove VAT from a price that already includes it.</p>
-<div class="row">
-<div>
-<label for="vatAmount">Amount (AED)</label>
-<input type="number" id="vatAmount" value="1000" min="0" step="0.01">
-</div>
-<div>
-<label for="vatMode">Calculation</label>
-<select id="vatMode">
-<option value="add" selected>Add VAT (net price)</option>
-<option value="remove">Remove VAT (gross price)</option>
-</select>
-</div>
-</div>
-<button type="button" onclick="calcVat()">Calculate VAT</button>
-<div class="result" id="vatResult">Net amount: AED <strong>1,000.00</strong> &middot; VAT at 5%: AED <strong>50.00</strong> &middot; Total including VAT: AED <strong>1,050.00</strong></div>
-<p class="small" style="color:#c8d5e0">Estimates only. The correct VAT treatment of a supply should be confirmed before an invoice is issued.</p>
+<div class="card key" id="vat-calc" style="text-align:center">
+<h2 style="border-bottom:none;margin-top:0;padding-bottom:0">Try the VAT Calculator on UAE Calculators</h2>
+<p>Add or remove 5% VAT from any amount with the free online tool:</p>
+<p style="margin-bottom:2px"><a href="https://uaecalculators.ae/vat-calculator/" style="display:inline-block;background:#0b6b3a;color:#fff;font-weight:700;padding:14px 28px;border-radius:8px;font-size:18px;text-decoration:none">Open the VAT Calculator</a></p>
 </div>
 
 <h2 id="what">What Are UAE Tax Calculators and What Do They Cover?</h2>
@@ -256,26 +241,5 @@ footer{border-top:2px solid var(--line);margin-top:42px;padding-top:18px;color:v
 </footer>
 
 </div>
-<script>
-function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function calcVat(){
-  var raw=document.getElementById('vatAmount').value;
-  var amt=parseFloat(raw);
-  if(isNaN(amt)){amt=0;}
-  if(amt<0){amt=0;}
-  var mode=document.getElementById('vatMode').value;
-  var net,vat,total;
-  if(mode==='add'){
-    net=amt;
-    vat=amt*0.05;
-    total=amt*1.05;
-  }else{
-    net=amt/1.05;
-    vat=amt*5/105;
-    total=amt;
-  }
-  document.getElementById('vatResult').innerHTML='Net amount: AED <strong>'+fmt(net)+'</strong> &middot; VAT at 5%: AED <strong>'+fmt(vat)+'</strong> &middot; Total including VAT: AED <strong>'+fmt(total)+'</strong>';
-}
-</script>
 </body>
 </html>
