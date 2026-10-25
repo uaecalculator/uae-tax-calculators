@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UAE Tax Calculators | VAT, Corporate Tax, Customs &amp; Excise</title>
+<meta name="description" content="Free UAE tax calculators for VAT at 5%, corporate tax at 9%, customs duty, excise tax and withholding tax. Worked AED examples, current thresholds and official sources.">
+<link rel="canonical" href="https://uae-tax-calculators.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UAE Tax Calculators | VAT, Corporate Tax, Customs &amp; Excise">
+<meta property="og:description" content="Estimate UAE VAT, corporate tax, customs duty and excise tax with worked examples, current thresholds and links to the full calculator set.">
+<meta property="og:url" content="https://uae-tax-calculators.vercel.app/">
+<meta property="og:site_name" content="UAE Tax Calculators">
+<style>
+:root{--green:#0b6b3a;--green-dark:#084f2b;--navy:#10243e;--gold:#c9a227;--ink:#1c2733;--muted:#5a6a78;--line:#dfe7e2;--bg:#f6f8f7;--card:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 48px}
+header.site{border-top:6px solid var(--green);background:var(--navy);color:#fff;padding:30px 18px}
+header.site .inner{max-width:860px;margin:0 auto}
+header.site .brand{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+h1{font-size:32px;line-height:1.25;margin:10px 0 8px}
+header.site p{margin:0;color:#d7e2ec;max-width:720px}
+h2{font-size:25px;color:var(--navy);border-bottom:3px solid var(--gold);padding-bottom:6px;margin:38px 0 12px;line-height:1.3}
+h3{font-size:20px;color:var(--green-dark);margin:26px 0 8px;line-height:1.35}
+p{margin:10px 0}
+a{color:var(--green);font-weight:600}
+ul,ol{margin:10px 0 10px 22px;padding:0}
+li{margin:6px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:18px 0}
+.note{border-left:5px solid var(--gold);background:#fdf8e7}
+.key{border-left:5px solid var(--green);background:#eef7f1}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:16px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#f2f6f3}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 22px}
+.toc ol{margin:6px 0 6px 20px}
+.calc{background:var(--navy);color:#fff;border-radius:12px;padding:22px;margin:22px 0}
+.calc h2{color:#fff;border-bottom-color:var(--gold);margin-top:0}
+.calc label{display:block;font-weight:600;margin:12px 0 5px}
+.calc input,.calc select{width:100%;padding:11px;border-radius:7px;border:1px solid #b9c6d2;font-size:17px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc button{background:var(--gold);color:#231d05;border:none;border-radius:7px;padding:12px 20px;font-size:17px;font-weight:700;cursor:pointer;margin-top:16px;width:100%}
+.calc .result{background:#fff;color:var(--ink);border-radius:8px;padding:14px 17px;margin-top:16px}
+.calc .result strong{color:var(--green-dark)}
+.faq h3{color:var(--navy)}
+footer{border-top:2px solid var(--line);margin-top:42px;padding-top:18px;color:var(--muted);font-size:15px}
+.small{font-size:15px;color:var(--muted)}
+@media (max-width:640px){h1{font-size:26px}h2{font-size:22px}.calc .row{grid-template-columns:1fr}body{font-size:16px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the standard VAT rate in the UAE?","acceptedAnswer":{"@type":"Answer","text":"The standard VAT rate in the UAE is 5%. A taxable price of AED 1,000 before VAT carries AED 50 of VAT and a total of AED 1,050. Some supplies are zero-rated or exempt, so the treatment of the supply should be confirmed before the arithmetic is applied."}},
+{"@type":"Question","name":"When must a UAE business register for VAT?","acceptedAnswer":{"@type":"Answer","text":"Registration is mandatory when taxable supplies and imports pass AED 375,000. Voluntary registration opens at AED 187,500. A business that expects to cross the mandatory threshold should register before it does, because VAT applies from the effective registration date."}},
+{"@type":"Question","name":"How is UAE corporate tax calculated?","acceptedAnswer":{"@type":"Answer","text":"Corporate tax is charged at 0% on taxable income up to AED 375,000 and 9% on the part above that figure. A company with AED 500,000 of taxable income pays 9% of AED 125,000, which is AED 11,250."}},
+{"@type":"Question","name":"What is Small Business Relief?","acceptedAnswer":{"@type":"Answer","text":"Small Business Relief lets an eligible resident business with revenue of AED 3,000,000 or less elect to be treated as having no taxable income for the period. It is elective, it must be claimed in the tax return, and it applies to tax periods ending on or before 31 December 2029."}},
+{"@type":"Question","name":"Does the UAE charge withholding tax?","acceptedAnswer":{"@type":"Answer","text":"The UAE withholding tax rate under the Corporate Tax Law is 0% on UAE-source payments to residents, so nothing is deducted at source in the standard domestic case. Payments connected with other countries can fall under a double tax agreement, where rates typically sit between 0% and 15%."}},
+{"@type":"Question","name":"How is customs duty calculated on imports into the UAE?","acceptedAnswer":{"@type":"Answer","text":"Customs duty is generally 5% of the CIF value of the goods, meaning cost, insurance and freight combined. VAT is then charged at 5% on the CIF value plus the duty. Goods valued at AED 300 or less are exempt from customs duty."}},
+{"@type":"Question","name":"What are the UAE excise tax rates?","acceptedAnswer":{"@type":"Answer","text":"Excise tax is 100% on tobacco products, energy drinks and electronic smoking devices, and 50% on carbonated drinks. Sweetened drinks are taxed on a tiered basis linked to sugar content per litre, so higher-sugar drinks carry a higher charge."}},
+{"@type":"Question","name":"Who is exempt from UAE corporate tax?","acceptedAnswer":{"@type":"Answer","text":"Government entities, qualifying public benefit entities, pension and social security funds, and certain extractive and natural resource businesses sit outside corporate tax, subject to conditions. Free zone businesses can keep a 0% rate on qualifying income when they meet the substance, audited accounts and other conditions."}},
+{"@type":"Question","name":"When is a UAE corporate tax return due?","acceptedAnswer":{"@type":"Answer","text":"The corporate tax return is due within nine months of the end of the financial year. A business with a 31 December year end files by 30 September of the following year. Registration, filing and payment all run through the EmaraTax portal."}}
+]}
+</script>
+</head>
+<body>
+<header class="site">
+<div class="inner">
+<div class="brand">UAE Tax Calculators</div>
+<h1>UAE Tax Calculators: VAT, Corporate Tax, Customs and Excise Explained</h1>
+<p>How the main UAE taxes are worked out, with the current rates, thresholds and worked examples in dirhams, plus a free VAT calculator you can use on this page.</p>
+</div>
+</header>
+<div class="wrap">
+
+<p>Tax in the United Arab Emirates used to be a short conversation. There was no personal income tax, no corporate tax, and most goods crossed the border with a flat customs charge. That picture has changed in stages: VAT arrived in 2018, excise tax in 2017 and 2019, and corporate tax in 2023. Each tax has its own rate, its own registration threshold and its own filing calendar, so a single wrong assumption can throw out an invoice, a price list or a year-end provision. This page walks through each tax in turn, shows the arithmetic on real dirham figures, and points you to the full set of <a href="https://uaecalculators.ae/tax-calculators/">UAE Tax Calculators</a> when you want a tool to run the numbers for your own case.</p>
+
+<p>The calculators and examples here are built for the questions people actually ask. What does 5% VAT add to a quote? How much of a company's profit falls into the 9% corporate tax band? Why is VAT on an import charged on a figure that already includes duty? Each question needs the right formula, the right order of operations, and inputs that match the underlying documents.</p>
+
+<div class="card note">
+<p><strong>Good to know:</strong> this page explains the standard rules and rates for each tax. Individual cases can turn on the type of supply, the place of supply, free zone status or the wording of a treaty. Where a figure matters for a filing, check it against the official guidance listed in the sources at the end of the page.</p>
+</div>
+
+<div class="toc">
+<strong>On this page</strong>
+<ol>
+<li><a href="#what">What are UAE tax calculators?</a></li>
+<li><a href="#vat">VAT in the UAE at 5%</a></li>
+<li><a href="#corporate">Corporate tax at 0% and 9%</a></li>
+<li><a href="#withholding">Withholding tax and treaties</a></li>
+<li><a href="#excise">Excise tax on tobacco, drinks and devices</a></li>
+<li><a href="#customs">Customs duty and the AED 300 exemption</a></li>
+<li><a href="#exemption">Who is exempt from UAE tax?</a></li>
+<li><a href="#examples">Worked examples across all five taxes</a></li>
+<li><a href="#accuracy">How to check a tax calculation</a></li>
+<li><a href="#why">Why use dedicated tax calculators?</a></li>
+<li><a href="#faq">Frequently asked questions</a></li>
+</ol>
+</div>
+
+<div class="calc" id="vat-calc">
+<h2>Try the VAT Calculator</h2>
+<p>Enter an amount, then choose whether to add VAT to a net price or remove VAT from a price that already includes it.</p>
+<div class="row">
+<div>
+<label for="vatAmount">Amount (AED)</label>
+<input type="number" id="vatAmount" value="1000" min="0" step="0.01">
+</div>
+<div>
+<label for="vatMode">Calculation</label>
+<select id="vatMode">
+<option value="add" selected>Add VAT (net price)</option>
+<option value="remove">Remove VAT (gross price)</option>
+</select>
+</div>
+</div>
+<button type="button" onclick="calcVat()">Calculate VAT</button>
+<div class="result" id="vatResult">Net amount: AED <strong>1,000.00</strong> &middot; VAT at 5%: AED <strong>50.00</strong> &middot; Total including VAT: AED <strong>1,050.00</strong></div>
+<p class="small" style="color:#c8d5e0">Estimates only. The correct VAT treatment of a supply should be confirmed before an invoice is issued.</p>
+</div>
+
+<h2 id="what">What Are UAE Tax Calculators and What Do They Cover?</h2>
+<p>A tax calculator takes the inputs a tax law cares about, applies the statutory formula, and returns the tax figure with the steps visible. For VAT the inputs are the price and whether it already includes tax. For corporate tax the inputs are accounting profit and the adjustments the law requires. For customs the input is the CIF value of the shipment. The tools differ because the taxes differ, but each replaces a chain of manual steps that is easy to get wrong under time pressure.</p>
+
+<h3>Which taxes have their own calculators?</h3>
+<ul>
+<li><strong>VAT calculator:</strong> adds 5% to a net price or strips 5% out of a gross price, and shows the net, tax and total side by side.</li>
+<li><strong>Corporate tax calculator:</strong> applies the 0% band on the first AED 375,000 of taxable income and 9% above it.</li>
+<li><strong>Withholding tax checker:</strong> confirms the 0% domestic rate and shows typical treaty rates for cross-border payments.</li>
+<li><strong>Excise tax calculator:</strong> applies 100% or 50% rates by product category, with the tiered treatment for sweetened drinks.</li>
+<li><strong>Customs duty calculator:</strong> works out duty at 5% of CIF, then VAT on the duty-inclusive value.</li>
+<li><strong>Tax exemption checker:</strong> walks through the categories of person and income that sit outside corporate tax.</li>
+</ul>
+
+<h2 id="vat">How Does VAT Work in the UAE at 5%?</h2>
+<p>Value added tax is a consumption tax charged at each stage of the supply chain, with registered businesses collecting it on their sales and reclaiming what they paid on their purchases. The standard rate is <strong>5%</strong>. Some supplies are zero-rated, which means VAT applies at 0% and input tax stays recoverable, and some are exempt, which means no VAT is charged and related input tax cannot be reclaimed. The distinction sounds minor and is not: it changes the economics of exports, international transport, residential property and financial services.</p>
+
+<h3>When does a business have to register for VAT?</h3>
+<p>Registration is mandatory once taxable supplies and imports pass <strong>AED 375,000</strong> in the previous 12 months, or are expected to pass it in the next 30 days. Voluntary registration opens at <strong>AED 187,500</strong>. A business below the voluntary threshold cannot register, and a business above the mandatory threshold that delays registration faces penalties on top of the VAT it should have charged. Registration, returns and payments all run through the Federal Tax Authority's EmaraTax portal.</p>
+
+<h3>How do you add and remove VAT?</h3>
+<p>The two directions use different formulas, and mixing them up is the most common VAT error on invoices. Adding VAT to a net price: VAT equals the amount times 0.05, and the total equals the amount times 1.05. Removing VAT from a gross price: the net equals the amount divided by 1.05, and the VAT inside it equals the amount times 5 divided by 105. A dedicated <a href="https://uaecalculators.ae/vat-calculator/">VAT calculator</a> handles both directions and labels each output, which matters when a supplier quote and a customer price list use opposite conventions.</p>
+<table>
+<tr><th>Task</th><th>Formula</th><th>On AED 1,000</th></tr>
+<tr><td>Add VAT to a net price</td><td>VAT = amount x 0.05; total = amount x 1.05</td><td>VAT AED 50.00; total AED 1,050.00</td></tr>
+<tr><td>Remove VAT from a gross price</td><td>Net = amount / 1.05; VAT = amount x 5 / 105</td><td>On AED 1,050: net AED 1,000.00; VAT AED 50.00</td></tr>
+<tr><td>VAT on an AED 250 invoice line</td><td>250 x 0.05</td><td>VAT AED 12.50; total AED 262.50</td></tr>
+</table>
+
+<h3>What happens if a VAT return is late?</h3>
+<p>Late filing and late payment carry administrative penalties, and the late-payment penalty for VAT now runs at <strong>14% per annum, applied monthly</strong>, under the rules in force from 14 April 2026. The practical lesson is simple: the cost of a missed deadline grows with the size of the liability, so the return date belongs in the finance calendar next to the payment runs, not in someone's memory.</p>
+
+<h2 id="corporate">How Is UAE Corporate Tax Calculated at 0% and 9%?</h2>
+<p>The UAE corporate tax applies to financial years starting on or after 1 June 2023. It is charged on taxable income, which starts from accounting profit and is then adjusted for items the law treats differently, such as unrealised gains, certain deductions and exempt income. The headline structure has two bands: <strong>0% on taxable income up to AED 375,000</strong>, and <strong>9% on the part above AED 375,000</strong>. The first band is a threshold, not a cliff. Crossing it does not tax the whole profit at 9%; only the excess is charged.</p>
+
+<h3>A quick corporate tax example</h3>
+<p>A trading company finishes its year with taxable income of AED 500,000. The first AED 375,000 is taxed at 0%. The remaining AED 125,000 is taxed at 9%, which gives AED 11,250. A larger company with AED 2,000,000 of taxable income pays 9% of AED 1,625,000, which is AED 146,250. Running both figures through a calculator before the year end turns the tax from a surprise into a planned cash outflow.</p>
+
+<h3>What is Small Business Relief?</h3>
+<p>Small Business Relief is an election open to resident businesses with revenue of <strong>AED 3,000,000 or less</strong> in the relevant and previous tax periods. A business that elects is treated as having no taxable income for that period, so no corporate tax is payable. The relief is not automatic: it must be claimed in the tax return, the business still has to register and file, and it applies to tax periods ending on or before <strong>31 December 2029</strong>. A business growing toward the AED 3,000,000 line should model both outcomes, because the year the relief ends is the year a 9% charge can appear on profits that were previously untaxed.</p>
+
+<h3>What about free zone companies?</h3>
+<p>A free zone business can be a Qualifying Free Zone Person and keep a <strong>0% rate on qualifying income</strong>, provided it maintains adequate substance, earns qualifying income, keeps audited financial statements and complies with transfer pricing rules. Non-qualifying income is taxed at 9%. The 0% rate is a status to maintain, not a permanent feature of the licence, and it should be checked each period rather than assumed.</p>
+
+<h3>When is the corporate tax return due?</h3>
+<p>The return is due within <strong>nine months</strong> of the end of the financial year, with payment of any tax due by the same date. A company with a 31 December year end files and pays by 30 September. Groups, free zone entities and mainland companies share the same EmaraTax filing route, although the content of the return differs.</p>
+
+<h2 id="withholding">Does the UAE Charge Withholding Tax?</h2>
+<p>For most readers the short answer is reassuring: the UAE withholding tax rate is <strong>0%</strong>. Under Article 47 of the Corporate Tax Law, UAE-source payments made to resident persons are subject to withholding at 0%, which in practice means nothing is deducted at source. There is no domestic withholding on dividends, interest, royalties or service fees of the kind that surprises businesses arriving from jurisdictions where 10% or 20% disappears before the invoice is settled.</p>
+
+<h3>Where do treaty rates come in?</h3>
+<p>Withholding becomes a live question when a payment crosses a border. The UAE has signed more than 100 double tax agreements, and under those treaties withholding rates on dividends, interest and royalties typically range from <strong>0% to 15%</strong>, depending on the treaty partner and the payment type. The direction matters: a UAE company receiving income from abroad may suffer withholding there that a treaty can reduce. A withholding checker confirms which rate a treaty allows before contracts are priced on a gross or net basis.</p>
+
+<h2 id="excise">How Does Excise Tax Apply to Tobacco, Drinks and Devices?</h2>
+<p>Excise tax targets goods that harm health or the environment. It is charged once, usually at import or production, and it is built into the shelf price rather than added at the till. The rates are steep by design: <strong>100%</strong> on tobacco and tobacco products, energy drinks, and electronic smoking devices and tools; <strong>50%</strong> on carbonated drinks. Sweetened drinks are taxed on a tiered volumetric basis linked to sugar content per litre, so a drink with more sugar per litre carries a higher charge than a lightly sweetened one.</p>
+
+<h3>How does excise change an import calculation?</h3>
+<p>Excise is charged on the excise price of the goods, and VAT is then charged on a value that includes the excise. A shipment of energy drinks with an excise price of AED 20,000 attracts AED 20,000 of excise at 100%. The VAT base rises accordingly, which is why the landed cost of excise goods can approach double the supplier price before duty is considered. Businesses in this space use the excise calculator at the quoting stage, because a pricing error here cannot be recovered from the customer later.</p>
+
+<h2 id="customs">How Is Customs Duty Calculated on Imports?</h2>
+<p>Customs duty in the UAE is generally <strong>5% of the CIF value</strong> of the goods. CIF means the cost of the goods plus insurance plus freight, so the duty is charged on the landed figure, not the factory price. After duty is added, VAT at 5% is charged on the combined value of CIF plus duty. The order of the two charges is fixed, and reversing it understates the VAT.</p>
+
+<h3>What is the AED 300 rule?</h3>
+<p>Goods valued at <strong>AED 300 or less</strong> are exempt from customs duty. The exemption is aimed at low-value consignments and personal imports. A parcel at AED 300 pays no duty; a parcel at AED 301 falls into the standard calculation on its full CIF value.</p>
+
+<h3>A customs and VAT example</h3>
+<p>An importer brings in equipment with a CIF value of AED 40,000. Duty at 5% is AED 2,000. VAT is then charged on AED 42,000, which gives AED 2,100. The total tax on the shipment is AED 4,100, and the landed cost before local charges is AED 44,100. The same steps on the calculator take seconds and match the structure of the customs declaration, which makes them easy to reconcile against the entry the broker files.</p>
+
+<h2 id="exemption">Who Is Exempt From UAE Corporate Tax?</h2>
+<p>Exemption comes in two forms: persons who sit outside the tax, and income carved out of it. Government entities and government-controlled entities are generally exempt, as are qualifying public benefit entities and qualifying investment funds. Pension and social security funds are exempt. Extractive and non-extractive natural resource businesses can sit outside corporate tax where they meet the conditions and remain subject to emirate-level taxation. On the income side, dividends and capital gains from qualifying participations are exempt under the participation exemption.</p>
+<p>An exemption checker works through these categories in order: the legal form of the person, the nature of the income, any election that must be filed, and the conditions to maintain each period. Exempt status is rarely a one-time decision. A public benefit entity that drifts from its conditions, or a free zone business that stops meeting the qualifying tests, can move into the 9% net without any change in its trade.</p>
+
+<h2 id="examples">Worked Examples Across All Five Taxes</h2>
+<table>
+<tr><th>Scenario</th><th>Steps</th><th>Result</th></tr>
+<tr><td>VAT on a consultancy invoice of AED 8,000</td><td>8,000 x 0.05 = 400</td><td>VAT AED 400; invoice total AED 8,400</td></tr>
+<tr><td>VAT inside a retail price of AED 525</td><td>Net = 525 / 1.05 = 500; VAT = 525 x 5 / 105 = 25</td><td>Net AED 500; VAT AED 25</td></tr>
+<tr><td>Corporate tax on AED 900,000 profit</td><td>(900,000 - 375,000) x 9% = 525,000 x 0.09</td><td>AED 47,250</td></tr>
+<tr><td>Excise on carbonated drinks, excise price AED 10,000</td><td>10,000 x 50%</td><td>AED 5,000 before VAT</td></tr>
+<tr><td>Customs on CIF AED 12,000</td><td>Duty 5% = 600; VAT 5% of 12,600 = 630</td><td>Total tax AED 1,230</td></tr>
+<tr><td>Withholding on a UAE-source fee to a resident</td><td>Rate under the Corporate Tax Law is 0%</td><td>AED 0 deducted</td></tr>
+</table>
+<p>Read the table as a set of patterns rather than answers to copy. Each pattern has one decision inside it: whether the price is net or gross, whether profit sits above or below the AED 375,000 band, whether duty comes before VAT. The calculators make that decision explicit, so a reviewer can see which way it went and why.</p>
+
+<h2 id="accuracy">How Can You Check That a Tax Calculation Is Right?</h2>
+<h3>Start with the inputs</h3>
+<p>Most wrong tax figures are wrong inputs, not wrong formulas. Check that the price used is the price in the contract, that a gross figure has not been fed into a net formula, and that the period matches the return being prepared. For corporate tax, confirm the profit figure is taxable income after adjustments, not the raw accounting number.</p>
+<h3>Check the rate and the date</h3>
+<p>Rates and thresholds carry dates. The VAT registration threshold, the Small Business Relief window ending 31 December 2029, and the filing deadline nine months after the year end all belong to specific periods. A calculation done with last year's relief or this year's rate on last year's income will look tidy and still be wrong.</p>
+<h3>Reconcile against an official source</h3>
+<p>The final check is a comparison with the authority that collects the tax. The <a href="https://tax.gov.ae/">Federal Tax Authority</a> publishes the VAT, excise and corporate tax guides, decisions and filing calendars, and the <a href="https://u.ae/">UAE Government Portal</a> summarises the tax system for residents and businesses. If a calculator result and an official worked example disagree, the official example wins and the calculator inputs should be re-examined.</p>
+
+<div class="card key">
+<p><strong>Key point:</strong> a calculator result is only as good as the treatment chosen before the numbers went in. Confirm whether a supply is standard-rated, zero-rated or exempt, confirm the band or category, and only then trust the arithmetic.</p>
+</div>
+
+<h2 id="why">Why Use Dedicated UAE Tax Calculators?</h2>
+<p>A spreadsheet can do any of these calculations once. The problem is the tenth time, on a deadline, with a figure copied from the wrong column. Dedicated calculators fix the formula in one place, label the inputs in the language of the tax, and show the net, tax and total together so a mismatch is visible at a glance. They also keep the order of operations straight where order changes the answer, such as duty before VAT and excise inside the VAT base.</p>
+<p>They are also a teaching tool. A business owner who runs three prices through the VAT tool learns the difference between net and gross pricing faster than one who reads a guide alone. A founder who models profit at AED 300,000, AED 375,000 and AED 600,000 sees the shape of the corporate tax bands and why the first band is worth planning around. The full set of tools sits at <a href="https://uaecalculators.ae/">uaecalculators.ae</a>, alongside calculators for salaries, loans and property, so a tax figure can be checked next to the payroll or purchase figure it affects.</p>
+
+<h3>Related resources</h3>
+<p>For the wider set of UAE tools in one place, see <a href="https://uaecalculators-aec5fe.gitlab.io/">UAE Calculators</a>, which covers gratuity, salary, loan and property calculators alongside the tax set described here.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq">
+<h3>1. What is the standard VAT rate in the UAE?</h3>
+<p>The standard VAT rate in the UAE is 5%. A taxable price of AED 1,000 before VAT carries AED 50 of VAT and a total of AED 1,050. Some supplies are zero-rated or exempt, so the treatment of the supply should be confirmed before the arithmetic is applied.</p>
+<h3>2. When must a UAE business register for VAT?</h3>
+<p>Registration is mandatory when taxable supplies and imports pass AED 375,000. Voluntary registration opens at AED 187,500. A business that expects to cross the mandatory threshold should register before it does, because VAT applies from the effective registration date.</p>
+<h3>3. How is UAE corporate tax calculated?</h3>
+<p>Corporate tax is charged at 0% on taxable income up to AED 375,000 and 9% on the part above that figure. A company with AED 500,000 of taxable income pays 9% of AED 125,000, which is AED 11,250.</p>
+<h3>4. What is Small Business Relief?</h3>
+<p>Small Business Relief lets an eligible resident business with revenue of AED 3,000,000 or less elect to be treated as having no taxable income for the period. It is elective, it must be claimed in the tax return, and it applies to tax periods ending on or before 31 December 2029.</p>
+<h3>5. Does the UAE charge withholding tax?</h3>
+<p>The UAE withholding tax rate under the Corporate Tax Law is 0% on UAE-source payments to residents, so nothing is deducted at source in the standard domestic case. Payments connected with other countries can fall under a double tax agreement, where rates typically sit between 0% and 15%.</p>
+<h3>6. How is customs duty calculated on imports into the UAE?</h3>
+<p>Customs duty is generally 5% of the CIF value of the goods, meaning cost, insurance and freight combined. VAT is then charged at 5% on the CIF value plus the duty. Goods valued at AED 300 or less are exempt from customs duty.</p>
+<h3>7. What are the UAE excise tax rates?</h3>
+<p>Excise tax is 100% on tobacco products, energy drinks and electronic smoking devices, and 50% on carbonated drinks. Sweetened drinks are taxed on a tiered basis linked to sugar content per litre, so higher-sugar drinks carry a higher charge.</p>
+<h3>8. Who is exempt from UAE corporate tax?</h3>
+<p>Government entities, qualifying public benefit entities, pension and social security funds, and certain extractive and natural resource businesses sit outside corporate tax, subject to conditions. Free zone businesses can keep a 0% rate on qualifying income when they meet the substance, audited accounts and other conditions.</p>
+<h3>9. When is a UAE corporate tax return due?</h3>
+<p>The corporate tax return is due within nine months of the end of the financial year. A business with a 31 December year end files by 30 September of the following year. Registration, filing and payment all run through the EmaraTax portal.</p>
+</div>
+
+<h2>Quick FAQ</h2>
+<p><strong>Q: What is the VAT rate in the UAE?</strong><br>A: 5%. AED 1,000 plus VAT is AED 1,050.</p>
+<p><strong>Q: What is the corporate tax rate?</strong><br>A: 0% on taxable income up to AED 375,000, then 9% on the excess.</p>
+<p><strong>Q: Is there withholding tax in the UAE?</strong><br>A: The domestic rate is 0%. Treaty rates for cross-border payments typically run from 0% to 15%.</p>
+
+<footer>
+<p><strong>Name:</strong> UAE Tax Calculators: VAT, Corporate Tax, Customs and Excise Tools</p>
+<p><strong>Description:</strong> Free UAE tax calculators and guides covering 5% VAT, corporate tax at 0% and 9%, customs duty at 5% of CIF, excise tax and withholding tax, with worked examples in AED and links to official sources.</p>
+<p><strong>Updated:</strong> October 2026</p>
+<p class="small">This page provides general information and estimates only. It is not tax advice. Confirm any figure used in a filing with the Federal Tax Authority or a qualified tax adviser.</p>
+</footer>
+
+</div>
+<script>
+function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calcVat(){
+  var raw=document.getElementById('vatAmount').value;
+  var amt=parseFloat(raw);
+  if(isNaN(amt)){amt=0;}
+  if(amt<0){amt=0;}
+  var mode=document.getElementById('vatMode').value;
+  var net,vat,total;
+  if(mode==='add'){
+    net=amt;
+    vat=amt*0.05;
+    total=amt*1.05;
+  }else{
+    net=amt/1.05;
+    vat=amt*5/105;
+    total=amt;
+  }
+  document.getElementById('vatResult').innerHTML='Net amount: AED <strong>'+fmt(net)+'</strong> &middot; VAT at 5%: AED <strong>'+fmt(vat)+'</strong> &middot; Total including VAT: AED <strong>'+fmt(total)+'</strong>';
+}
+</script>
+</body>
+</html>
